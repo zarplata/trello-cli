@@ -1,0 +1,6 @@
+.out/ 
+*.xz
+/src
+/pkg
+/vendor/src
+/trello-cli
