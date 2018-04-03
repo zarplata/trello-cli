@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	toml "github.com/BurntSushi/toml"
@@ -9,11 +10,11 @@ import (
 
 type Config struct {
 	Trello struct {
-		AppKey string `toml: "appkey" required:"true"`
-		Token  string `toml: "token" required:"true"`
-		Member string `toml: "member" required:"true"`
-		Board  string `toml: "board" required:"true"`
-		List   string `toml: "list" required:"true"`
+		AppKey string `toml: "appkey"`
+		Token  string `toml: "token"`
+		Member string `toml: "member"`
+		Board  string `toml: "board"`
+		List   string `toml: "list"`
 	} `toml:"trello"`
 }
 
@@ -22,10 +23,23 @@ func loadConfig(path string) (*Config, error) {
 	config := &Config{}
 	_, err := toml.DecodeFile(path, &config)
 	if err != nil {
-		return config, hierr.Errorf(err, "can't load config %s", path)
+		return nil, hierr.Errorf(err, "can't load config %s", path)
 	}
-
-	logger.Debugf("successfully load config file %s", path)
+	if len(config.Trello.AppKey) == 0 {
+		return nil, fmt.Errorf("AppKey is null")
+	}
+	if len(config.Trello.Token) == 0 {
+		return nil, fmt.Errorf("Token is null")
+	}
+	if len(config.Trello.Member) == 0 {
+		return nil, fmt.Errorf("Member is null")
+	}
+	if len(config.Trello.Board) == 0 {
+		return nil, fmt.Errorf("Board is null")
+	}
+	if len(config.Trello.List) == 0 {
+		return nil, fmt.Errorf("List is null")
+	}
 
 	return config, nil
 }
@@ -49,8 +63,5 @@ func saveConfig(path string, config *Config) error {
 		return hierr.Errorf(err, "can't close output file: %s", path)
 	}
 
-	logger.Debugf("successfully save config file %s", path)
-
 	return nil
-
 }

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"time"
 
 	docopt "github.com/docopt/docopt-go"
 	"github.com/kovetskiy/lorg"
@@ -21,8 +20,6 @@ Next click generate a Token and take him.`
 )
 
 func main() {
-
-	start := time.Now()
 
 	usage := `trello-cli
 
@@ -42,7 +39,6 @@ Add card options:
   <description>               Card description (optionals).
 
 Misc options:
-  -v --verbose                Print verbose messages.
   --version                   Show version.
   -h --help                   Show this screen.
 `
@@ -51,13 +47,11 @@ Misc options:
 		panic(hierr.Errorf(err, "can't parse docopt"))
 	}
 
-	mustSetupLogger(args["--verbose"].(bool))
-
 	path := os.ExpandEnv(args["--config"].(string))
 
 	config, err := loadConfig(path)
 	if err != nil {
-		hierr.Errorf(err, "problem with configuration")
+		hierr.Fatalf(err, "problem with configuration, run setup")
 	}
 
 	switch {
@@ -69,9 +63,6 @@ Misc options:
 	}
 
 	if err != nil {
-		logger.Warning(err.Error())
+		hierr.Errorf(err, "an error occurred during the process")
 	}
-
-	elapsed := time.Since(start)
-	logger.Debugf("execution time %s", elapsed)
 }
