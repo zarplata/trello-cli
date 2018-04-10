@@ -5,13 +5,11 @@ import (
 	"os"
 
 	docopt "github.com/docopt/docopt-go"
-	"github.com/kovetskiy/lorg"
 	hierr "github.com/reconquest/hierr-go"
 )
 
 var (
 	version        = "[manual build]"
-	logger         *lorg.Log
 	err            error
 	OutputFileMode os.FileMode = 0644
 	Help                       = `Authorize trello.com.

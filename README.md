@@ -58,9 +58,3 @@ trello-cli -S
 ```sh
 trello-cli CardName CardDescription
 ```
-
-#### Verbose mode
-
-```sh
-trello-cli CardName CardDescription -v
-```
