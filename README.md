@@ -19,8 +19,7 @@ make
 #Installing
 make install
 
-# By default, binary installs into /usr/bin/ and zabbix config in /etc/zabbix/zabbix_agentd.conf.d/ but,
-# you may manually copy binary to your executable path and zabbix config to specific include directory
+# By default, binary installs into /usr/bin/ and trello.conf in $HOME/.config/
 ```
 
 #### Arch Linux package
