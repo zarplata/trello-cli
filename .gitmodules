@@ -1,0 +1,27 @@
+[submodule "vendor/github.com/BurntSushi/toml"]
+	path = vendor/github.com/BurntSushi/toml
+	url = https://github.com/BurntSushi/toml
+[submodule "vendor/github.com/adlio/trello"]
+	path = vendor/github.com/adlio/trello
+	url = https://github.com/adlio/trello
+[submodule "vendor/github.com/briandowns/spinner"]
+	path = vendor/github.com/briandowns/spinner
+	url = https://github.com/briandowns/spinner
+[submodule "vendor/github.com/docopt/docopt-go"]
+	path = vendor/github.com/docopt/docopt-go
+	url = https://github.com/docopt/docopt-go
+[submodule "vendor/github.com/fatih/color"]
+	path = vendor/github.com/fatih/color
+	url = https://github.com/fatih/color
+[submodule "vendor/github.com/kovetskiy/lorg"]
+	path = vendor/github.com/kovetskiy/lorg
+	url = https://github.com/kovetskiy/lorg
+[submodule "vendor/github.com/pkg/errors"]
+	path = vendor/github.com/pkg/errors
+	url = https://github.com/pkg/errors
+[submodule "vendor/github.com/reconquest/hierr-go"]
+	path = vendor/github.com/reconquest/hierr-go
+	url = https://github.com/reconquest/hierr-go
+[submodule "vendor/github.com/zazab/zhash"]
+	path = vendor/github.com/zazab/zhash
+	url = https://github.com/zazab/zhash
