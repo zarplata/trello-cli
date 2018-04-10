@@ -7,7 +7,7 @@ license=('GPL')
 makedepends=('go')
 depends=()
 install=()
-source=("https://github.com/zarplata/trello-cli.git")
+source=("git+https://github.com/zarplata/trello-cli.git#branch=master")
 md5sums=('SKIP')
 
 pkgver() {
